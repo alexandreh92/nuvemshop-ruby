@@ -1,17 +1,19 @@
 PATH
   remote: .
   specs:
-    nuvemshop_ruby (0.1.0)
+    nuvemshop (0.1.0)
       httparty (~> 0.18)
 
 GEM
   remote: https://rubygems.org/
   specs:
     ast (2.4.2)
+    coderay (1.1.3)
     diff-lcs (1.4.4)
     httparty (0.18.1)
       mime-types (~> 3.0)
       multi_xml (>= 0.5.2)
+    method_source (1.0.0)
     mime-types (3.3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2021.0225)
@@ -19,6 +21,9 @@ GEM
     parallel (1.20.1)
     parser (3.0.1.0)
       ast (~> 2.4.1)
+    pry (0.14.1)
+      coderay (~> 1.1)
+      method_source (~> 1.0)
     rainbow (3.0.0)
     rake (13.0.3)
     regexp_parser (2.1.1)
@@ -60,7 +65,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  nuvemshop_ruby!
+  nuvemshop!
+  pry
   rake (~> 13.0)
   rspec (~> 3.0)
   rubocop (~> 1.12)

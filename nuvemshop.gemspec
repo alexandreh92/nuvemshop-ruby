@@ -1,8 +1,8 @@
-require_relative 'lib/nuvemshop_ruby/version'
+require_relative 'lib/nuvemshop/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'nuvemshop_ruby'
-  spec.version       = NuvemshopRuby::VERSION
+  spec.name          = 'nuvemshop'
+  spec.version       = Nuvemshop::VERSION
   spec.authors       = ['Alexandre Stapenhorst']
   spec.email         = ['eng.alexandreh@gmail.com']
 
@@ -35,4 +35,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop', '~> 1.12'
   spec.add_development_dependency 'rubocop-performance', '~> 1.11'
   spec.add_development_dependency 'rubocop-rspec', '~> 2.2'
+  spec.add_development_dependency 'pry'
 end
