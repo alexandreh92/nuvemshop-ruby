@@ -1,10 +1,13 @@
 module Nuvemshop
   class Request
-    require 'httparty'
+    class Error < StandardError; end
 
+    include HTTParty
+
+    attr_accessor :response
     attr_reader :access_token, :user_id, :options
 
-    BASE_URL = 'https://api.tiendanube.com/v1/'.freeze
+    BASE_URL = 'https://api.tiendanube.com/v1'.freeze
 
     def initialize(*block)
       @base_url = "#{BASE_URL}/#{set_store}"
@@ -31,16 +34,24 @@ module Nuvemshop
 
     private
 
+      def self.respond_with(response); end
+
       def perform_request(method, opts = {})
-        HTTParty.send(method.to_sym, path(opts[:action]), merge_options(opts))
+        self.class.send(method.to_sym, path(opts[:action]), merge_options(opts))
       end
 
       def merge_options(opts = {})
-        @options.merge!(body: serialize_hash(opts[:body]), query: serialize_hash(opts[:query]))
+        @options.merge!(body: serialize_hash(opts[:body]), query: sanitize_hash(opts[:query]))
       end
 
-      def serialize_hash(params)
-        params.keep_if { |_, v| v }.to_json
+      def serialize_hash(opts = {})
+        return unless opts
+
+        sanitize_hash(opts).to_json
+      end
+
+      def sanitize_hash(opts = {})
+        opts.keep_if { |_, v| v }
       end
 
       def path(action)
@@ -56,11 +67,11 @@ module Nuvemshop
       end
 
       def set_access_token
-        Nuvemshop.store_access_token || access_token
+        access_token || Nuvemshop.store_access_token
       end
 
       def set_store
-        Nuvemshop.store_user_id || user_id
+        user_id || Nuvemshop.store_user_id
       end
   end
 end
