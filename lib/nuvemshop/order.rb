@@ -15,7 +15,16 @@ module Nuvemshop
     private
 
       def after_initialize
-        @promotional_discount = PromotionalDiscount.new(promotional_discount)
+        assing_variables
+      end
+
+      def assing_variables
+        @promotional_discount = Order::PromotionalDiscount.new(promotional_discount)
+        @completed_at = Extras::Timestampz.new(completed_at)
+        @payment_details = Order::PaymentDetails.new(payment_details)
+        @customer = Customer.new(customer)
+        @products = products&.map { |prod| Product.new(prod) }
+        @client_details = Order::ClientDetails.new(client_details)
       end
   end
 end

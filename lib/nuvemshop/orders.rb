@@ -31,7 +31,7 @@ module Nuvemshop
         }
       )
 
-      Nuvemshop::Order.new(response)
+      response.map { |res| Nuvemshop::Order.new(res) }
     end
   end
 end

@@ -1,6 +1,9 @@
 require 'pp'
 require 'httparty'
 
+require 'nuvemshop/inflections/infer_key_class_name'
+require 'nuvemshop/inflections/pascal_case'
+
 require 'nuvemshop/extensions/credentiable'
 require 'nuvemshop/extensions/mass_assignment'
 
@@ -8,10 +11,18 @@ require 'nuvemshop/version'
 require 'nuvemshop/response'
 require 'nuvemshop/request'
 require 'nuvemshop/base_model'
-require 'nuvemshop/orders/promotional_discount'
 require 'nuvemshop/extras/timestampz'
+
 require 'nuvemshop/order'
+require 'nuvemshop/order/promotional_discount'
+require 'nuvemshop/order/payment_details'
+require 'nuvemshop/order/timestampz'
+require 'nuvemshop/order/address'
+require 'nuvemshop/order/client_details'
+require 'nuvemshop/product/image'
+require 'nuvemshop/product'
 require 'nuvemshop/orders'
+require 'nuvemshop/customer'
 
 module Nuvemshop
   class Error < StandardError; end

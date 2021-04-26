@@ -1,5 +1,5 @@
 module Nuvemshop
-  class BaseModel
+  class BaseModel < Object
     include Extensions::MassAssignment
 
     def pretty_print(pp)

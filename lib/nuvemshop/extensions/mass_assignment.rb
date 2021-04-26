@@ -3,7 +3,7 @@ module Nuvemshop
     module MassAssignment
       def initialize(options = {})
         before_initialize if respond_to?(:before_initialize, true)
-        options.each { |key, value| public_send("#{key.to_sym}=", value) }
+        options&.each { |key, value| public_send("#{key.to_sym}=", value) }
         after_initialize if respond_to?(:after_initialize, true)
       end
     end
