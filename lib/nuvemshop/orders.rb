@@ -5,7 +5,10 @@ module Nuvemshop
     PATH = 'orders'.freeze
 
     def self.all(opts = {})
-      new(access_token: opts[:access_token], user_id: opts[:user_id]).get(
+      response = new(
+        access_token: opts[:access_token],
+        user_id: opts[:user_id]
+      ).get(
         action: PATH,
         query: {
           since_id: opts[:since_id],
@@ -27,6 +30,8 @@ module Nuvemshop
           app_id: opts[:app_id]
         }
       )
+
+      Nuvemshop::Order.new(response)
     end
   end
 end

@@ -7,6 +7,10 @@ require 'nuvemshop/extensions/mass_assignment'
 require 'nuvemshop/version'
 require 'nuvemshop/response'
 require 'nuvemshop/request'
+require 'nuvemshop/base_model'
+require 'nuvemshop/orders/promotional_discount'
+require 'nuvemshop/extras/timestampz'
+require 'nuvemshop/order'
 require 'nuvemshop/orders'
 
 module Nuvemshop

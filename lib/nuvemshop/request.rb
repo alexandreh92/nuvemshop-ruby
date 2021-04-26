@@ -34,10 +34,12 @@ module Nuvemshop
 
     private
 
-      def self.respond_with(response); end
-
       def perform_request(method, opts = {})
-        self.class.send(method.to_sym, path(opts[:action]), merge_options(opts))
+        response = self.class.send(method.to_sym, path(opts[:action]), merge_options(opts))
+
+        return Nuvemshop::Response.new(response) if response.success?
+
+        raise Error, response
       end
 
       def merge_options(opts = {})
