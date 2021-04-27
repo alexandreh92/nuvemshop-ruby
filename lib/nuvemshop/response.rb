@@ -1,13 +1,24 @@
 module Nuvemshop
   class Response < Object
-    attr_reader :response, :body, :code, :headers, :parsed_response
+    attr_reader :response, :body, :code, :headers, :parsed_response, :formatter
 
-    def initialize(response)
+    def initialize(response, formatter = nil)
       @response = response
       @code = response.code
       @body = response.body
       @headers = response.headers
       @parsed_response = response.parsed_response
+      @formatter = formatter
+    end
+
+    def format
+      return unless formatter
+
+      @parsed_response = if parsed_response.is_a?(Array)
+                           parsed_response.map { |pr| formatter.new(pr) }
+                         else
+                           formatter.new(parsed_response)
+                         end
     end
 
     def to_s
@@ -24,6 +35,8 @@ module Nuvemshop
     end
 
     def pretty_print(pp)
+      format
+
       if !parsed_response.nil? && parsed_response.respond_to?(:pretty_print)
         parsed_response.pretty_print(pp)
       else

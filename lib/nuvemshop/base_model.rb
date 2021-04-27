@@ -2,10 +2,24 @@ module Nuvemshop
   class BaseModel < Object
     include Extensions::MassAssignment
 
+    def self.attr_accessor(*vars)
+      @attributes ||= []
+      @attributes.concat vars
+      super(*vars)
+    end
+
+    def self.attributes
+      @attributes
+    end
+
+    def attributes
+      self.class.attributes
+    end
+
     def pretty_print(pp)
       pp.object_address_group(self) do
-        variables = instance_variables.map do |attribute|
-          attribute.to_s.delete('@')
+        variables = self.class.attributes.map do |attribute|
+          attribute.to_s.delete(':')
         end
 
         pp.seplist(variables, proc { pp.text ',' }) do |attr_name|
