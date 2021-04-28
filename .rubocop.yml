@@ -82,6 +82,5 @@ Style/SingleArgumentDig:
 Style/MutableConstant:
   Enabled: true
   AutoCorrect: true
-SpecSuffixOnly:
-  Enabled: true
-  SpecSuffixOnly: true
+RSpec/FilePath:
+  Enabled: false
