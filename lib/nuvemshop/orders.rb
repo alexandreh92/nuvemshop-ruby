@@ -33,5 +33,19 @@ module Nuvemshop
 
       respond_with(response, Nuvemshop::Order)
     end
+
+    def self.show(opts = {})
+      response = new(
+        access_token: opts[:access_token],
+        user_id: opts[:user_id]
+      ).get(
+        action: "#{PATH}/#{opts[:order_id]}",
+        query: {
+          fields: opts[:fields]
+        }
+      )
+
+      respond_with(response, Nuvemshop::Order)
+    end
   end
 end

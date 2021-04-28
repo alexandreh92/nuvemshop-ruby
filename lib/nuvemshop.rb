@@ -29,14 +29,10 @@ module Nuvemshop
 
   class << self
     attr_accessor :client_id, :client_secret
-    attr_writer :api_version, :user_agent, :store_access_token, :store_user_id
+    attr_writer :user_agent, :store_access_token, :store_user_id
 
-    def config
+    def configure
       yield self
-    end
-
-    def api_version
-      @api_version ||= 'v1'
     end
 
     def user_agent
