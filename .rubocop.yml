@@ -84,3 +84,9 @@ Style/MutableConstant:
   AutoCorrect: true
 RSpec/FilePath:
   Enabled: false
+RSpec/ExampleLength:
+  Enabled: true
+  CountAsOne: ['array', 'heredoc', 'hash']
+  Max: 15
+RSpec/MultipleExpectations:
+  Enabled: false

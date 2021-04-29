@@ -28,7 +28,7 @@ module Nuvemshop
             pp.text attr_name
             pp.text ':'
             pp.breakable
-            value = send(attr_name.to_sym)
+            value = send(attr_name.to_sym) || nil
             pp.pp value
           end
         end

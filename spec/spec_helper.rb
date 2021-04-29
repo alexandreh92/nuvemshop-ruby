@@ -1,6 +1,7 @@
 require 'extensions/simplecov'
 require 'bundler/setup'
 require 'nuvemshop'
+require 'pry'
 
 Dir['./spec/support/**/*.rb'].sort.each { |file| require file }
 
