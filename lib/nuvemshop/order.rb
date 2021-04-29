@@ -23,7 +23,7 @@ module Nuvemshop
         @completed_at = Extras::Timestampz.new(completed_at)
         @payment_details = Order::PaymentDetails.new(payment_details)
         @customer = Customer.new(customer)
-        @products = products&.map { |prod| Product.new(prod) }
+        @products = products&.map { |prod| Product.new(prod) } || []
         @client_details = Order::ClientDetails.new(client_details)
       end
   end
