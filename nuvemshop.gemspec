@@ -6,8 +6,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Alexandre Stapenhorst']
   spec.email         = ['eng.alexandreh@gmail.com']
 
-  spec.summary       = 'Write a short summary, because RubyGems requires one.'
-  spec.description   = 'Write a longer description or delete this line.'
+  spec.summary       = 'A wrapper for Nuvemshop/TiendaNube API'
+  spec.description   = 'This gem is a work in progress. If you like to contribute, please get in touch!'
   spec.homepage      = 'https://github.com/alexandreh92/nuvemshop-ruby'
   spec.license       = 'MIT'
   spec.required_ruby_version = Gem::Requirement.new('>= 2.3.0')

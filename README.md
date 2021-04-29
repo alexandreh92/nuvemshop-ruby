@@ -1,8 +1,11 @@
 # NuvemshopRuby
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/nuvemshop`. To experiment with that code, run `bin/console` for an interactive prompt.
+This is a Wrapper for Nuvemshop/Tiendanube API. his gem is a work in progress. If you like to contribute, please get in touch!
 
-TODO: Delete this and the text above, and describe your gem
+## Working Features
+
+- `Nuvemshop::Orders.all`
+- `Nuvemshop::Orders.show`
 
 ## Installation
 
@@ -22,7 +25,18 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+If you use rails you can add this code below in `config/initializers/nuvemshop.rb`
+```
+require 'nuvemshop'
+
+Nuvemshop.configure do |config|
+  config.client_id = '123456'
+  config.client_secret = '54321'
+  config.user_agent = 'Foo'
+  config.store_access_token = '123123'
+  config.store_user_id = '9876'
+end
+```
 
 ## Development
 
