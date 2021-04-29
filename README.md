@@ -30,24 +30,17 @@ If you use rails you can add this code below in `config/initializers/nuvemshop.r
 require 'nuvemshop'
 
 Nuvemshop.configure do |config|
-  config.client_id = '123456'
-  config.client_secret = '54321'
-  config.user_agent = 'Foo'
-  config.store_access_token = '123123'
-  config.store_user_id = '9876'
+  config.client_id = 'your_client_id'
+  config.client_secret = 'your_client_secret'
+  config.user_agent = 'Your Company/Name (your_email@domain.com)'
+  config.store_access_token = 'your_store_access_token'
+  config.store_user_id = 'your_user_id'
 end
 ```
-
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/nuvemshop-ruby. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/nuvemshop_ruby/blob/master/CODE_OF_CONDUCT.md).
-
 
 ## License
 
