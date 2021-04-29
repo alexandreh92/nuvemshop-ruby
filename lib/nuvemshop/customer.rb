@@ -13,7 +13,7 @@ module Nuvemshop
 
       def set_attributes
         @default_address = Nuvemshop::Order::Address.new(default_address)
-        @addresses = addresses&.map { |addr| Order::Address.new(addr) }
+        @addresses = addresses&.map { |addr| Order::Address.new(addr) } || []
       end
   end
 end
