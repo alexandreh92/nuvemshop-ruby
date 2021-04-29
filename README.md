@@ -2,6 +2,11 @@
 
 This is a Wrapper for Nuvemshop/Tiendanube API. his gem is a work in progress. If you like to contribute, please get in touch!
 
+## RDoc
+
+This gem is documented [here](https://www.rubydoc.info/github/alexandreh92/nuvemshop-ruby)
+
+
 ## Working Features
 
 - `Nuvemshop::Orders.all`
