@@ -1,8 +1,16 @@
 # NuvemshopRuby
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/nuvemshop`. To experiment with that code, run `bin/console` for an interactive prompt.
+This is a Wrapper for Nuvemshop/Tiendanube API. his gem is a work in progress. If you like to contribute, please get in touch!
 
-TODO: Delete this and the text above, and describe your gem
+## RDoc
+
+This gem is documented [here](https://www.rubydoc.info/github/alexandreh92/nuvemshop-ruby)
+
+
+## Working Features
+
+- `Nuvemshop::Orders.all`
+- `Nuvemshop::Orders.show`
 
 ## Installation
 
@@ -22,18 +30,22 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+If you use rails you can add this code below in `config/initializers/nuvemshop.rb`
+```
+require 'nuvemshop'
 
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+Nuvemshop.configure do |config|
+  config.client_id = 'your_client_id'
+  config.client_secret = 'your_client_secret'
+  config.user_agent = 'Your Company/Name (your_email@domain.com)'
+  config.store_access_token = 'your_store_access_token'
+  config.store_user_id = 'your_user_id'
+end
+```
 
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/nuvemshop-ruby. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/nuvemshop_ruby/blob/master/CODE_OF_CONDUCT.md).
-
 
 ## License
 
