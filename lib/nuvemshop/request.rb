@@ -1,5 +1,6 @@
 module Nuvemshop
   class Request
+    # Wraps any unsuccessfull request error
     class Error < StandardError; end
 
     include HTTParty
@@ -7,8 +8,12 @@ module Nuvemshop
     attr_accessor :response
     attr_reader :access_token, :user_id, :options
 
+    # Nuvemshop API URL
     BASE_URL = 'https://api.tiendanube.com/v1'.freeze
 
+    # Receives any instance variables and reset if needed.
+    # If :access_token or :user_id are missing, values set in the configuration
+    # will be used
     def initialize(*block)
       @base_url = "#{BASE_URL}/#{set_store}"
       @headers = set_headers
@@ -16,22 +21,27 @@ module Nuvemshop
       @options = { headers: @headers }
     end
 
+    # Exec HTTP GET request with {perform_request} params
     def get(opts = {})
       perform_request(__method__, opts)
     end
 
+    # Exec HTTP POST request with {perform_request} params
     def post(opts = {})
       perform_request(__method__, opts)
     end
 
+    # Exec HTTP PUT request with {perform_request} params
     def put(opts = {})
       perform_request(__method__, opts)
     end
 
+    # Exec HTTP DELETE request with {perform_request} params
     def delete(opts = {})
       perform_request(__method__, opts)
     end
 
+    # Responds request with formatted {Response}
     def self.respond_with(response, formatter)
       Response.new(response, formatter)
     end

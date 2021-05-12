@@ -11,6 +11,7 @@ module Nuvemshop
       @formatter = formatter
     end
 
+    # Formats response with desired class
     def format
       return unless formatter
 
@@ -21,6 +22,7 @@ module Nuvemshop
                          end
     end
 
+    # Defines default value of class with response.body
     def to_s
       if !response.nil? && !response.body.nil? && response.body.respond_to?(:to_s)
         response.body.to_s
@@ -29,11 +31,7 @@ module Nuvemshop
       end
     end
 
-    def inspect
-      inspect_id = ::Kernel.format '%x', (object_id * 2)
-      %(#<#{self.class}:0x#{inspect_id} code, @response=#{response.inspect}, @headers=#{headers.inspect}>)
-    end
-
+    # Redefines default pretty_print showing response as output
     def pretty_print(pp)
       format
 
@@ -44,6 +42,7 @@ module Nuvemshop
       end
     end
 
+    # Checks if responds to missing method
     def respond_to_missing?(name, *args)
       return true if super
 

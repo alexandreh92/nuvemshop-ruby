@@ -2,7 +2,6 @@ module Nuvemshop
   class BaseModel < Object
     include Extensions::MassAssignment
 
-    ##
     # Intercepts attr_acessor call, and assign it value to a variable named @attributes
     def self.attr_accessor(*vars)
       @attributes ||= []
@@ -10,19 +9,16 @@ module Nuvemshop
       super(*vars)
     end
 
-    ##
     # Getter to expose @attributes to class object
     def self.attributes
       @attributes
     end
 
-    ##
     # Getter to expose @attributes to class instance
     def attributes
       self.class.attributes
     end
 
-    ##
     # Overwrite default Ruby pretty_print(q) method to act as ActiveRecord's output
     def pretty_print(pp)
       pp.object_address_group(self) do
