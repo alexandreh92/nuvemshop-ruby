@@ -37,11 +37,17 @@ module Nuvemshop
   class Error < StandardError; end
 
   class << self
-    attr_writer :user_agent, :store_access_token, :store_user_id, :client_id, :client_secret
+    attr_accessor :store_access_token, :store_user_id, :client_id, :client_secret
+    attr_writer :user_agent
 
     # Default method to setup Nuvemshop
     def configure
       yield self
+    end
+
+    # Sets default user agent. Required from NuvemShop
+    def user_agent
+      @user_agent ||= 'Nuvemshop Gem(https://github.com/alexandreh92/nuvemshop-ruby)'
     end
   end
 end
