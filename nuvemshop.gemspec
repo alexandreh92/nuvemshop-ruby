@@ -32,12 +32,12 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'httparty', '~> 0.18'
 
   # Development
-  spec.add_development_dependency 'rubocop', '~> 1.12'
-  spec.add_development_dependency 'rubocop-performance', '~> 1.11'
-  spec.add_development_dependency 'rubocop-rspec', '~> 2.2'
   spec.add_development_dependency 'pry'
   spec.add_development_dependency 'rake', '~> 13.0'
   spec.add_development_dependency 'rspec', '~> 3.0'
+  spec.add_development_dependency 'rubocop', '~> 1.12'
+  spec.add_development_dependency 'rubocop-performance', '~> 1.11'
+  spec.add_development_dependency 'rubocop-rspec', '~> 2.2'
   spec.add_development_dependency 'simplecov'
   spec.add_development_dependency 'yard'
 end
