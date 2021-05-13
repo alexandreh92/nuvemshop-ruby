@@ -81,7 +81,6 @@ Style/HashLikeCase:
 Style/SingleArgumentDig:
   Enabled: false
 Style/MutableConstant:
-  Enabled: true
   AutoCorrect: true
 RSpec/FilePath:
   Enabled: false
