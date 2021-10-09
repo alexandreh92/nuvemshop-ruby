@@ -18,7 +18,7 @@ require 'nuvemshop/enums/order/shipping_method'
 require 'nuvemshop/enums/order/shipping_type'
 require 'nuvemshop/enums/order/status'
 
-require 'nuvemshop/request_helpers/orders/create'
+require 'nuvemshop/adapters/orders/create'
 
 require 'nuvemshop/order'
 require 'nuvemshop/order/promotional_discount'
