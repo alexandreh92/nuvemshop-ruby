@@ -1,6 +1,7 @@
 module Nuvemshop
   class Orders < Request
     include Extensions::Credentiable
+    include Hash
 
     # Nuvemshop API Orders path
     PATH = 'orders'.freeze

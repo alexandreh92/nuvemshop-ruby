@@ -19,6 +19,13 @@ module Nuvemshop
       self.class.attributes
     end
 
+    # Transforms Object attributes into hash
+    def to_hash
+      hash = {}
+      attributes.each { |var| hash[var.to_sym] = send(var.to_sym) }
+      hash
+    end
+
     # Overwrite default Ruby pretty_print(q) method to act as ActiveRecord's output
     def pretty_print(pp)
       pp.object_address_group(self) do
@@ -38,5 +45,7 @@ module Nuvemshop
         end
       end
     end
+
+    alias to_h to_hash
   end
 end
