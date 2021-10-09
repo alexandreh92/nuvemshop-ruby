@@ -1,5 +1,5 @@
 module Nuvemshop
-  module RequestHelpers
+  module Adapters
     module Orders
       class Create < BaseModel
         attr_accessor :id, :currency, :language, :gateway, :payment_status, :status, :fulfillment_status, :products,
